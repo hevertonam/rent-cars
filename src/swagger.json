@@ -1,0 +1,131 @@
+{
+    
+    "openapi": "3.0.0",
+      "info":{
+        "title":"RentalX Documentation",
+        "description": "this is an API Rent",
+        "version": "2.0.0",
+        "contact":{
+        "email":"hevertonam2018@gmail.com"
+        }
+    },
+    "paths":{
+      "/modelo":{
+      "post": {
+        "tags":["modelo"],
+        "summary": "Create a category",
+        "description": "Create a new category",
+        "requestBody": {
+          "content":{
+            "apllication/json":{
+              "schema":{
+                "type":"object",
+                "properties":{
+                  "name":{
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "category name sample",
+                  "description":"category description sample"
+                }
+              }
+            }
+          }
+        },
+        "responses":{
+          "201":{
+            "description": "Created"
+          },
+          "500": {
+            "description": "Category Already exists"
+        }
+      }
+      },
+
+      "get": 
+      {
+          "tags": ["Category"],
+          "summary": "List all categories",
+          "description": "List all categories",
+          "responses":
+          {
+            "200":
+            {
+              "description": "Success",
+              "content":
+              {
+
+                "apllication/json":
+                {
+                  "schema":
+                  {
+                    "type":"array", 
+                      "items":
+                      {
+                      "type":"object",
+                      "properties":
+                      {
+                        "name":
+                        {
+                          "type": "string"
+                        },
+                        "description": 
+                        {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+        }
+         
+      }
+    },
+"/specifications":{
+  "post":{
+    "tags":["modelo"],
+    "summary":"create especification",
+    "description":"create a new especification",
+    "requestBody":{
+      "content":{
+        "apllication/json":{
+          "schema":{
+            "$ref": "#/definitions/Specification"
+          }
+        }
+      }
+    },
+    "responses":{
+      "201":{
+        "description":"Created"
+      },
+      "500":{
+        "description":"ja existe"
+      }
+    }
+  }
+}
+},
+"definitions":{
+  "Specification":{
+    "type":"object",
+    "properties":{
+      "nome":{
+        "type":"string"
+      },
+      "description":{
+        "type":"string"
+      }
+    }
+  }
+}
+}
+    
+
+
