@@ -26,7 +26,7 @@ export class CreateSpecificationsCars1661450349108 implements MigrationInterface
         await queryRunner.createForeignKey(
             "specifications_cars",
             new TableForeignKey({
-                name: "FKSpecifiationCar",
+                name: "FKSpecificationCar",
                 referencedTableName: "specifications",
                 referencedColumnNames: ["id"],
                 columnNames: ["specification_id"],
@@ -38,7 +38,7 @@ export class CreateSpecificationsCars1661450349108 implements MigrationInterface
         await queryRunner.createForeignKey(
             "specifications_cars",
             new TableForeignKey({
-                name: "FKCarSpecifiation",
+                name: "FKCarSpecification",
                 referencedTableName: "cars",
                 referencedColumnNames: ["id"],
                 columnNames: ["car_id"],
@@ -52,11 +52,11 @@ export class CreateSpecificationsCars1661450349108 implements MigrationInterface
     
         await queryRunner.dropForeignKey(
             "specifications_cars", 
-            "FKCarSpecifiation");
+            "FKCarSpecification");
              
         await queryRunner.dropForeignKey(
             "specifications_cars", 
-            "FKSpecifiationCar");
+            "FKSpecificationCar");
  
             await queryRunner.dropTable("specifications_cars");
         };

@@ -45,8 +45,6 @@ Cadastro de especificação no carro
 RF
 
 RF 01 - Deve ser possivel cadastrar uma especificação 
-RF 02 - Deve ser possivel listar todas as especificações
-RF 03 - Deve ser possivel listar todos os carros
 
 RN 
 
