@@ -11,6 +11,8 @@ interface ISpecificationsRepository{
 
     create({nome, descricao}:ICreateSpecificationDTO): Promise<void>;
     findByName(nome:string): Promise<Specification>;
+    findByIds(ids:string[]): Promise<Specification[]>;
+
     
  }
 

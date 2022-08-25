@@ -13,7 +13,7 @@ id: string;
 name: string;   
 
 @Column()
-description: String;
+description: string;
 
 @Column()
 daily_rate: number;
