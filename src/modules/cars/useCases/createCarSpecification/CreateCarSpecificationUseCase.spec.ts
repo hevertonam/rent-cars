@@ -49,11 +49,11 @@ describe("Create Car Specification", () => {
         category_id: "category",
         });
 
-        const specification_id = [54321];
+        const specifications_id = ["54321"];
 
         await createCarSpecificationUseCase.execute({
             car_id: car.id, 
-            specification_id });
+            specifications_id });
     })
 
 })
