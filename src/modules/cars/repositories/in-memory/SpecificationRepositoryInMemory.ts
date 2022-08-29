@@ -6,7 +6,7 @@ import { ICreateSpecificationDTO, ISpecificationsRepository } from "../ISpecific
 class SpecificationRepositoryInMemory implements ISpecificationsRepository{
     specifications: Specification[] = [];
 
-    async create({ nome, descricao }: ICreateSpecificationDTO): Promise<void> {
+    async create({ nome, descricao }: ICreateSpecificationDTO): Promise<Specification> {
         const specification = new Specification();
         
         Object.assign(specification, {
@@ -14,6 +14,8 @@ class SpecificationRepositoryInMemory implements ISpecificationsRepository{
             nome,
         });
         this.specifications.push(specification);
+
+        return specification;
 
     }
     async findByName(nome: string): Promise<Specification> {
@@ -24,7 +26,7 @@ class SpecificationRepositoryInMemory implements ISpecificationsRepository{
 
     async findByIds(ids: string[]): Promise<Specification[]> {
         const allSpecifications = this.specifications.filter(specification => 
-            ids.includes(specification .id)
+            ids.includes(specification.id)
             
             );
             return allSpecifications;
