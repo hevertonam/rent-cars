@@ -59,7 +59,6 @@ Cadastro de imagens do carro
 
 RF
 RF 01 - Deve ser possivel cadastrar a imagem do carro
-RF 02 - Deve ser possivel listar todos os carros
 
 RNF
 RNF 01 - Utilizar o multer para upload de arquivos 
