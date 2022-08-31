@@ -3,10 +3,10 @@
 
 import { CreateCarSpecificationUseCase } from "./CreateCarSpecificationUseCase";
 
-import { AppError } from "../../../../shared/errors/AppError";
 import { CarsRepositoryInMemory } from "../../repositories/in-memory/CarsRepositoryInMemory";
 import { SpecificationRepositoryInMemory } from "../../repositories/in-memory/SpecificationRepositoryInMemory";
 
+import { AppError } from "../../../../shared/errors/AppError";
 
 
 let createCarSpecificationUseCase: CreateCarSpecificationUseCase;
@@ -38,9 +38,11 @@ describe("Create Car Specification", () => {
        }).rejects.toBeInstanceOf(AppError); 
     });
 
+
+
     it ("should be abel to add a new specification to the car", async() => {
         const car = await carsRepositoryInMemory.create({
-            name: "Name Car",
+        name: "Name Car",
         description: "Description Car", 
         daily_rate: 100,
         license_plate: "ABC-1234",
