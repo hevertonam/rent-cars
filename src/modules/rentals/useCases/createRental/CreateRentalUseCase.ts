@@ -1,37 +1,45 @@
 import { AppError } from "../../../../shared/errors/AppError";
+import { Rental } from "../../infra/typeorm/entities/Rental";
 import { IRentalRepository } from "../../infra/typeorm/repositories/IRentalsRepository";
 
 
-	interface IRequest {
-	    user_id: string;
-	    car_id: string;
-	    expected_return_date: Date;
-	}
+interface IRequest {
+	user_id: string;
+	car_id: string;
+	expected_return_date: Date;
+}
 
-	class CreateRentalUseCase{
+class CreateRentalUseCase {
 
-	    constructor(
-		private rentalsRepository: IRentalRepository){}
+	constructor(
+		private rentalsRepository: IRentalRepository) { }
 
-		async execute({
+	async execute({
 		user_id,
 		car_id,
 		expected_return_date,
-	    }: IRequest):Promise<void>{
+	}: IRequest): Promise<Rental> {
 
 		const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(car_id);
 
-		if(carUnavailable) {
-		    throw new AppError(" Car is unavailable");
-	    }
-
-		const rentalOpenToUser = await this.rentalsRepository.findOpenRentalByUser(user_id);
-
-		if(rentalOpenToUser){
-		    throw new AppError(" There's a rental in progress for user");
-
+		if (carUnavailable) {
+			throw new AppError(" Car is unavailable");
 		}
+
+		const rentalOpenToUser = await this.rentalsRepository.findOpenRentalByUser(
+			user_id);
+
+		if (rentalOpenToUser) {
+			throw new AppError(" There's a rental in progress for user");
+		}
+		const rental = await this.rentalsRepository.create({
+			user_id,
+			car_id,
+			expected_return_date,
+		});
+
+		return rental;
 	}
 
-	}
-	export {CreateRentalUseCase}
+}
+export { CreateRentalUseCase }
