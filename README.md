@@ -74,6 +74,6 @@ RNF 01 -
 
 RN
 RN 01 - o aluguel deve ter duração minima de 24horas
-
-
-RN 02 - 
+RN 02 - Não deve ser possivel cadastrar um novo aluguel caso já exista uma aberto para o mesmo usuario
+RN 03 - Não deve ser possivel cadastrar um novo aluguel caso já exista uma aberto para o mesmo carro
+RN 04 - O usuário deve estar logado na aplicação 
