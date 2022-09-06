@@ -1,7 +1,8 @@
 import { getRepository, Repository } from "typeorm";
 
-import { ICreateCarDTO } from "src/modules/cars/dtos/ICreateCarDTO";
-import { ICarsRepository } from "src/modules/cars/repositories/in-memory/ICarsRepository";
+import { ICreateCarDTO } from "../../../../../modules/cars/dtos/ICreateCarDTO";
+import { ICarsRepository } from "../../../../../modules/cars/repositories/ICarsRepository";
+
 import { Car } from "../entities/Car";
 
 
